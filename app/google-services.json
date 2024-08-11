@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "686384556881",
+    "project_id": "d-place-new",
+    "storage_bucket": "d-place-new.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686384556881:android:558ad8163bde53009cc170",
+        "android_client_info": {
+          "package_name": "com.example.d_place_new"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfpnOOk0pX_ecI-MrPNygvnVdA_00wCdM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
