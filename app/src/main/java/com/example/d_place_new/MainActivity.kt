@@ -52,6 +52,7 @@ class MainActivity : ComponentActivity() {
                             HomeScreen(Modifier.padding(innerPadding))
                         }
 
+
                         composable (Screen.SignIn.route) {
                             val viewModel = viewModel<SignInViewModel>()
                             val state by viewModel.state.collectAsStateWithLifecycle()
@@ -60,7 +61,7 @@ class MainActivity : ComponentActivity() {
                                 onResult = { result ->
                                     if (result.resultCode == RESULT_OK) {
                                         lifecycleScope.launch {
-                                            val signInResult = googleAuthUiClient.getSignInResultFromIntent(
+                                            val signInResult = googleAuthUiClient.getSignInResultFromIntent (
                                                 intent = result.data ?: return@launch
                                             )
                                             viewModel.onSignInResult(signInResult)
@@ -70,13 +71,13 @@ class MainActivity : ComponentActivity() {
                             )
 
                             LaunchedEffect (key1 = state.isSignInSuccessful) {
-                                if (state.isSignInSuccessful) {
+                                if (googleAuthUiClient.getSignedInUser() != null) {
                                     Toast.makeText (
                                         applicationContext,
                                         "sign in successful",
                                         Toast.LENGTH_LONG
                                     ).show()
-                                } else {
+                                } else if (googleAuthUiClient.getSignedInUser() == null) {
                                     Toast.makeText (
                                         applicationContext,
                                         "sign in failed",
@@ -97,7 +98,7 @@ class MainActivity : ComponentActivity() {
                                         )
                                     }
                                 },
-                                toHome = { navController.navigate(Screen.Home.route)}
+                                toHome = { navController.navigate(Screen.Home.route) }
                             )
                         }
                     }

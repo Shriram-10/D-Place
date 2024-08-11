@@ -50,7 +50,7 @@ class GoogleAuthUiClient (
         } catch (e : Exception) {
             e.printStackTrace()
             if (e is CancellationException) throw e
-            SignInResult(
+            SignInResult (
                 data = null,
                 errorMessage = e.message
             )
