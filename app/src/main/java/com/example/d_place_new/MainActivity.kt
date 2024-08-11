@@ -76,6 +76,12 @@ class MainActivity : ComponentActivity() {
                                         "sign in successful",
                                         Toast.LENGTH_LONG
                                     ).show()
+                                } else {
+                                    Toast.makeText (
+                                        applicationContext,
+                                        "sign in failed",
+                                        Toast.LENGTH_LONG
+                                    ).show()
                                 }
                             }
 
@@ -90,7 +96,8 @@ class MainActivity : ComponentActivity() {
                                             ).build()
                                         )
                                     }
-                                }
+                                },
+                                toHome = { navController.navigate(Screen.Home.route)}
                             )
                         }
                     }
